@@ -179,26 +179,6 @@
         )
 )
 
-; Mengidentifikasi "Mean Smoothness"
-(
-    defrule mean_smoothness (meanSmoothness yes)
-    =>
-        (printout t crlf "mean smoothness ? ")
-        (bind ?x (read))
-        (
-            if (> ?x 0.09) then 
-            (
-                assert (isCancer no)
-            )
-        )
-        (
-            if (<= ?x 0.09) then
-            (
-                assert (isCancer yes)
-            )
-        )
-)
-
 ; Mengidentifikasi "radius_error"
 (
     defrule radius_error (radiusError yes)
@@ -219,6 +199,26 @@
                 then(
                     assert (worstTexture3 yes)
                     )
+        )
+)
+
+; Mengidentifikasi "Mean Smoothness"
+(
+    defrule mean_smoothness (meanSmoothness yes)
+    =>
+        (printout t crlf "mean smoothness ? ")
+        (bind ?x (read))
+        (
+            if (> ?x 0.09) then 
+            (
+                assert (isCancer no)
+            )
+        )
+        (
+            if (<= ?x 0.09) then
+            (
+                assert (isCancer yes)
+            )
         )
 )
 
